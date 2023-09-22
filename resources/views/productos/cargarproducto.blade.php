@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Menu</title>
+    <title>Productos</title>
 </head>
 
 <body>
@@ -24,8 +24,8 @@
             </button>
             <div class="tm-site-header">
             <div class="tm-site-header">
-    <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-bars fa-2x"></i></div>
-    <h1 class="text-center">Menú</h1>
+            <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-shopping-cart fa-2x"></i></div>
+    <h1 class="text-center">Productos</h1>
 </div>
 
 
@@ -33,11 +33,11 @@
   <ul>
     <li class="tm-nav-item">
       <a href="{{ route('clientes') }}" class="tm-nav-link">
-      <i class="fas fa-user"></i>
+        <i class="fas fa-user"></i>
         Clientes
       </a>
     </li>
-    <li class="tm-nav-item">
+    <li class="tm-nav-item active">
       <a href="{{ route('productos') }}" class="tm-nav-link">
         <i class="fas fa-shopping-cart"></i>
         Productos
@@ -54,16 +54,16 @@
 
           
             <p class="tm-mb-30 pr-5 text-white">
-                Este menu esta basado en una gestion respecto a clientes, productos y ventas.
+                Este menu esta basado en una gestion respecto a productos.
                 
             </p>
-            <p class="tm-mb-30 pr-5 text-white">
+            <p class="tm-mb-20 pr-5 text-white">
             Ferreyra Robles, Juan Manuel.
             </p>
 
 
             
-            <div class="tm-mb-35">
+            <div class="tm-mb-30">
                         <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
                             <i class="fab fa-facebook tm-social-icon"></i>
                         </a>
@@ -79,6 +79,60 @@
                     </div>
             </div>    
     </header>
+
+    <div class="container-fluid">
+        <main class="tm-main">
+    <div class="row tm-row tm-mb-120">
+                <div class="col-12">
+                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Ingrese datos del nuevo producto</h2>
+                </div>
+                <div class="col-lg-7 tm-contact-left">
+                <form method="POST" action="{{ route('crearproducto') }}" class="mb-5 ml-auto mr-0 tm-contact-form">
+                    @csrf
+                    <div class="form-group row mb-4">
+                        <label for="nombre" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
+                        <div class="col-sm-9">
+                            <input class="form-control mr-0 ml-auto" name="nombreProducto" id="nombre" type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="marca" class="col-sm-3 col-form-label text-right tm-color-primary">Marca</label>
+                        <div class="col-sm-9">
+                            <input class="form-control mr-0 ml-auto" name="marcaProducto" id="marca" type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="costo" class="col-sm-3 col-form-label text-right tm-color-primary">Costo</label>
+                        <div class="col-sm-4">
+                            <input class="form-control mr-0 ml-auto" name="costo" id="costo" type="text" required maxlength="8">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="cantdis" class="col-sm-3 col-form-label text-right tm-color-primary">Cant. Disponible</label>
+                        <div class="col-sm-4">
+                            <input class="form-control mr-0 ml-auto" name="cantidad_disponible" id="cantdis" type="text" required maxlength="8">
+                        </div>
+                    </div>
+                    <div class="form-group row text-right">
+                        <div class="col-12">
+                            <button class="tm-btn tm-btn-primary tm-btn-small">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+
+                </div>
+                
+            </div>
+</main>
+</div>
+
+
+
+
+
+
+
+
 
     <div class="container-fluid">
         <main class="tm-main">

@@ -24,14 +24,15 @@
             </button>
             <div class="tm-site-header">
             <div class="tm-site-header">
-    <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-bars fa-2x"></i></div>
-    <h1 class="text-center">Menú</h1>
+            <div class="mb-3 mx-auto tm-site-logo">
+    <i class="fas fa-user-plus fa-2x"></i>
+</div>    <h1 class="text-center">Cargar cliente</h1>
 </div>
 
 
 <nav class="tm-nav" id="tm-nav">
   <ul>
-    <li class="tm-nav-item">
+    <li class="tm-nav-item active">
       <a href="{{ route('clientes') }}" class="tm-nav-link">
       <i class="fas fa-user"></i>
         Clientes
@@ -53,17 +54,17 @@
 </nav>
 
           
-            <p class="tm-mb-30 pr-5 text-white">
-                Este menu esta basado en una gestion respecto a clientes, productos y ventas.
+            <p class="tm-mb-20 pr-5 text-white">
+                Este menu esta basado en una carga de clientes
                 
             </p>
-            <p class="tm-mb-30 pr-5 text-white">
+            <p class="tm-mb-20 pr-5 text-white">
             Ferreyra Robles, Juan Manuel.
             </p>
 
 
             
-            <div class="tm-mb-35">
+            <div class="tm-mb-30">
                         <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
                             <i class="fab fa-facebook tm-social-icon"></i>
                         </a>
@@ -79,6 +80,54 @@
                     </div>
             </div>    
     </header>
+    <div class="container-fluid">
+        <main class="tm-main">
+    <div class="row tm-row tm-mb-120">
+                <div class="col-12">
+                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Ingrese datos del nuevo cliente</h2>
+                </div>
+                <div class="col-lg-7 tm-contact-left">
+                    <form method="POST" action="{{ route('crearcliente') }}" class="mb-5 ml-auto mr-0 tm-contact-form">                        
+                    @csrf     
+                    <div class="form-group row mb-4">
+                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
+                            <div class="col-sm-9">
+                                <input class="form-control mr-0 ml-auto" name="nombre" id="name" type="text" required>                            
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Apellido</label>
+                            <div class="col-sm-9">
+                                <input class="form-control mr-0 ml-auto" name="apellido" id="name" type="text" required>                            
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Dni</label>
+                            <div class="col-sm-9">
+                                <input class="form-control mr-0 ml-auto" name="dni" id="name" type="text" required maxlength="8">                            
+                            </div>
+                        </div>
+                        
+                       
+                        <div class="form-group row text-right">
+                            <div class="col-12">
+                                <button class="tm-btn tm-btn-primary tm-btn-small">Agregar</button>                        
+                            </div>                            
+                        </div>                                
+                    </form>
+                </div>
+                
+            </div>
+</main>
+</div>
+
+
+
+
+
+
+
+
 
     <div class="container-fluid">
         <main class="tm-main">

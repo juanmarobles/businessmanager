@@ -39,8 +39,8 @@
       </a>
     </li>
     <li class="tm-nav-item">
-      <a href="" class="tm-nav-link">
-        <i class="fas fa-pen"></i>
+      <a href="{{ route('productos') }}" class="tm-nav-link">
+        <i class="fas fa-shopping-cart"></i>
         Productos
       </a>
     </li>
@@ -87,47 +87,42 @@
                     <h2 class="tm-color-primary tm-post-title tm-mb-60">Ingrese datos del nuevo cliente</h2>
                 </div>
                 <div class="col-lg-7 tm-contact-left">
-                    <form method="POST" action="{{ route('crearcliente') }}" class="mb-5 ml-auto mr-0 tm-contact-form">                        
-                    @csrf     
-                    <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="nombre" id="name" type="text" required>                            
+                            <form method="POST" action="{{ route('clientes.update', $cliente) }}" class="mb-5 ml-auto mr-0 tm-contact-form">
+                            @csrf
+                            @method('PUT')
+
+                            <div class="form-group row mb-4">
+                                <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
+                                    <div class="col-sm-9">
+                                     <input class="form-control mr-0 ml-auto" name="nombre" id="name" type="text" value="{{ $cliente->nombre }}"  required>                            
+                                    </div>
                             </div>
-                        </div>
-                        <div class="form-group row mb-4">
+
+                            <div class="form-group row mb-4">
                             <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Apellido</label>
                             <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="apellido" id="name" type="text" required>                            
+                                <input class="form-control mr-0 ml-auto" name="apellido" id="name" type="text"  value="{{ $cliente->apellido }}" required>                            
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Dni</label>
                             <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="dni" id="name" type="text" required maxlength="8">                            
+                                <input class="form-control mr-0 ml-auto" name="dni" id="name" type="text" value="{{ $cliente->dni }}"  required maxlength="8">                            
                             </div>
                         </div>
-                        
-                       
+
                         <div class="form-group row text-right">
                             <div class="col-12">
-                                <button class="tm-btn tm-btn-primary tm-btn-small">Agregar</button>                        
+                                <button class="tm-btn tm-btn-primary tm-btn-small">Guardar cambios</button>                        
                             </div>                            
-                        </div>                                
-                    </form>
+                        </div>   
+                        </form>
+
                 </div>
                 
             </div>
 </main>
 </div>
-
-
-
-
-
-
-
-
 
     <div class="container-fluid">
         <main class="tm-main">

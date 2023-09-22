@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Clientes</title>
+    <title>Productos</title>
 </head>
 
 <body>
@@ -24,22 +24,22 @@
             </button>
             <div class="tm-site-header">
             <div class="tm-site-header">
-            <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-user fa-2x"></i></div>
-    <h1 class="text-center">Clientes</h1>
+            <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-shopping-cart fa-2x"></i></div>
+    <h1 class="text-center">Productos</h1>
 </div>
 
 
 <nav class="tm-nav" id="tm-nav">
   <ul>
-    <li class="tm-nav-item active">
-      <a href="" class="tm-nav-link">
+    <li class="tm-nav-item">
+      <a href="{{ route('clientes') }}" class="tm-nav-link">
         <i class="fas fa-user"></i>
         Clientes
       </a>
     </li>
-    <li class="tm-nav-item">
+    <li class="tm-nav-item active">
       <a href="" class="tm-nav-link">
-        <i class="fas fa-pen"></i>
+        <i class="fas fa-shopping-cart"></i>
         Productos
       </a>
     </li>
@@ -54,7 +54,7 @@
 
           
             <p class="tm-mb-30 pr-5 text-white">
-                Este menu esta basado en una gestion respecto a clientes.
+                Este menu esta basado en una gestion respecto a productos.
                 
             </p>
             <p class="tm-mb-20 pr-5 text-white">
@@ -86,26 +86,26 @@
         <div class="row tm-row">
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
-                    <a href="{{ route('cargarcliente') }}" class="effect-lily tm-post-link tm-pt-30">
+                    <a href="{{ route('cargarproducto') }}" class="effect-lily tm-post-link tm-pt-30">
                         <div class="tm-post-link-inner">
-                        <img src="img/cargarcliente.png" alt="Image" class="img-fluid" style="width: 220px; height: 220px;">
+                        <img src="img/nuevoproducto.png" alt="Image" class="img-fluid" style="width: 220px; height: 220px;">
                         </div>
                         
 
-                        <span class="position-center tm-new-badge">Cargar clientes</span>
+                        <span class="position-center tm-new-badge">Nuevo producto</span>
                     </a>       
                     <hr class="tm-hr-primary">         
                 </article>
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
-                    <a href="{{ route('index') }}" class="effect-lily tm-post-link tm-pt-30">
+                    <a href="{{ route('productos.index') }}" class="effect-lily tm-post-link tm-pt-30">
                         <div class="tm-post-link-inner">
-                        <img src="img/vercliente.png" alt="Image" class="img-fluid" style="width: 220px; height: 220px;">
+                        <img src="img/verproductos.png" alt="Image" class="img-fluid" style="width: 220px; height: 220px;">
 
                         </div>
                         
 
-                        <span class="position-center tm-new-badge">Ver clientes</span>
+                        <span class="position-center tm-new-badge">Ver productos</span>
                     </a>                    
                     <hr class="tm-hr-primary">
 
