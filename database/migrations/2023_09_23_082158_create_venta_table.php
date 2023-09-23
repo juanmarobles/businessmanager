@@ -13,15 +13,20 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date('fecha_venta');
+            $table->double('total');
+            $table->unsignedBigInteger('cliente_id');
+
+            $table->foreign('cliente_id')->references('idCliente')->on('clientes');
+
+            $table->primary(['idVenta', 'cliente_id']);
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('ventas');
+        Schema::dropIfExists('venta');
     }
 };

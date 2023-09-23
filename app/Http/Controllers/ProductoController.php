@@ -42,4 +42,32 @@ public function destroy(Producto $producto)
     return back();
 }
 
+ //editar producto
+ public function edit(Producto $producto)
+{
+     
+    return view('productos.editarproducto', ['producto' => $producto]);
+}
+
+ public function update(Request $request, Producto $producto)
+{
+    $request->validate([
+        'nombreProducto'      => 'required|string',
+        'marcaProducto'       => 'required|string',
+        'costo'               => 'required|numeric',
+        'cantidad_disponible' => 'required|numeric',
+    ]);
+
+    $producto->update([
+        'nombreProducto' => $request->input('nombreProducto'),
+        'marcaProducto' => $request->input('marcaProducto'),
+        'costo' => $request->input('costo'),
+        'cantidad_disponible' => $request->input('cantidad_disponible'),
+    ]);
+
+    // Redirige a donde desees después de la actualización
+    return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
+}
+
+
 }

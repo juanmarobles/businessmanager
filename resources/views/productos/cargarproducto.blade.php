@@ -44,8 +44,8 @@
       </a>
     </li>
     <li class="tm-nav-item">
-      <a href="" class="tm-nav-link">
-        <i class="fas fa-users"></i>
+      <a href="{{ route('vistaventas') }}" class="tm-nav-link">
+      <i class="fas fa-hand-holding-dollar"></i>
         Ventas
       </a>
     </li>

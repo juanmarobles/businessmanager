@@ -1,3 +1,7 @@
+
+<div>
+    <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
+</div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Menu</title>
+    <title>Ventas</title>
 </head>
 
 <body>
@@ -24,17 +28,16 @@
             </button>
             <div class="tm-site-header">
             <div class="tm-site-header">
-            <div class="mb-3 mx-auto tm-site-logo">
-    <i class="fas fa-user-plus fa-2x"></i>
-</div>    <h1 class="text-center">Editar cliente</h1>
+            <div class="mb-3 mx-auto tm-site-logo"><i class="fas  fa-hand-holding-dollar fa-2x"></i></div> 
+    <h1 class="text-center">Ventas</h1>
 </div>
 
 
 <nav class="tm-nav" id="tm-nav">
   <ul>
-    <li class="tm-nav-item active">
+    <li class="tm-nav-item">
       <a href="{{ route('clientes') }}" class="tm-nav-link">
-      <i class="fas fa-user"></i>
+        <i class="fas fa-user"></i>
         Clientes
       </a>
     </li>
@@ -44,9 +47,9 @@
         Productos
       </a>
     </li>
-    <li class="tm-nav-item">
-      <a href="{{ route('vistaventas') }}" class="tm-nav-link">
-      <i class="fas fa-hand-holding-dollar"></i>
+    <li class="tm-nav-item active">
+      <a href="" class="tm-nav-link">
+        <i class="fas fa-hand-holding-dollar"></i>
         Ventas
       </a>
     </li>
@@ -54,8 +57,8 @@
 </nav>
 
           
-            <p class="tm-mb-20 pr-5 text-white">
-                Este menu esta basado en una carga de clientes
+            <p class="tm-mb-30 pr-5 text-white">
+                Este menu esta basado en una gestion respecto a ventas.
                 
             </p>
             <p class="tm-mb-20 pr-5 text-white">
@@ -80,55 +83,70 @@
                     </div>
             </div>    
     </header>
-    <div class="container-fluid">
-        <main class="tm-main">
-    <div class="row tm-row tm-mb-120">
-                <div class="col-12">
-                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Ingrese datos del nuevo cliente</h2>
-                </div>
-                <div class="col-lg-7 tm-contact-left">
-                            <form method="POST" action="{{ route('clientes.update', $cliente) }}" class="mb-5 ml-auto mr-0 tm-contact-form">
-                            @csrf
-                            @method('PUT')
-
-                            <div class="form-group row mb-4">
-                                <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
-                                    <div class="col-sm-9">
-                                     <input class="form-control mr-0 ml-auto" name="nombre" id="name" type="text" value="{{ $cliente->nombre }}"  required>                            
-                                    </div>
-                            </div>
-
-                            <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Apellido</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="apellido" id="name" type="text"  value="{{ $cliente->apellido }}" required>                            
-                            </div>
-                        </div>
-                        <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Dni</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="dni" id="name" type="text" value="{{ $cliente->dni }}"  required maxlength="8">                            
-                            </div>
-                        </div>
-
-                        <div class="form-group row text-right">
-                            <div class="col-12">
-                                <button class="tm-btn tm-btn-primary tm-btn-small">Guardar cambios</button>                        
-                            </div>                            
-                        </div>   
-                        </form>
-
-                </div>
-                
-            </div>
-</main>
-</div>
 
     <div class="container-fluid">
         <main class="tm-main">
 
         <div class="row tm-row">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Crear Nueva Venta</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('ventas.store') }}">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="fecha_venta">Fecha de Venta</label>
+                            <input type="date" name="fecha_venta" id="fecha_venta" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                        <label for="cliente">Cliente</label>
+                        <select name="cliente" id="cliente" class="form-control" required>
+                            <option value="">Seleccionar Cliente</option>
+                            @foreach ($clientes as $cliente)
+                                <option value="{{ $cliente->idCliente }}">{{ $cliente->apellido }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="producto">Producto</label>
+                        <select name="producto" id="producto" class="form-control" required>
+                            <option value="">Seleccionar Producto</option>
+                            @foreach ($productos as $producto)
+                                <option value="{{ $producto->idProducto }}">{{ $producto->nombreproducto }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                </div>
+
+
+                            
+                        <div class="form-group">
+                            <label for="total">Cantidad</label>
+                            <input type="number" name="producto" id="total" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="total">Total</label>
+                            <input type="number" name="total" id="total" class="form-control" required>
+                        </div>
+                   
+                        <button type="submit" class="btn btn-primary">Crear Venta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 
+               
                 </div>
                 <footer class="row tm-row">
                 <hr class="col-12">

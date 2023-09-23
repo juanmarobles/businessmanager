@@ -14,6 +14,7 @@ class Venta extends Model
     use HasFactory;
     protected $table = 'ventas'; 
     protected $primaryKey = 'idVenta'; 
+    public $timestamps = false;
 
     protected $fillable = [
         'idVenta',
@@ -29,7 +30,8 @@ class Venta extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'idCliente');
-    }   
+        return $this->belongsTo(Cliente::class, 'cliente_id', 'idCliente');
+    }
+  
 
 }

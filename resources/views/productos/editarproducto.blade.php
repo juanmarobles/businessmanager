@@ -26,19 +26,19 @@
             <div class="tm-site-header">
             <div class="mb-3 mx-auto tm-site-logo">
     <i class="fas fa-user-plus fa-2x"></i>
-</div>    <h1 class="text-center">Editar cliente</h1>
+</div>    <h1 class="text-center">Cargar cliente</h1>
 </div>
 
 
 <nav class="tm-nav" id="tm-nav">
   <ul>
-    <li class="tm-nav-item active">
+    <li class="tm-nav-item">
       <a href="{{ route('clientes') }}" class="tm-nav-link">
       <i class="fas fa-user"></i>
         Clientes
       </a>
     </li>
-    <li class="tm-nav-item">
+    <li class="tm-nav-item active">
       <a href="{{ route('productos') }}" class="tm-nav-link">
         <i class="fas fa-shopping-cart"></i>
         Productos
@@ -55,7 +55,7 @@
 
           
             <p class="tm-mb-20 pr-5 text-white">
-                Este menu esta basado en una carga de clientes
+                Este menu esta basado en una edicion de productos
                 
             </p>
             <p class="tm-mb-20 pr-5 text-white">
@@ -84,38 +84,42 @@
         <main class="tm-main">
     <div class="row tm-row tm-mb-120">
                 <div class="col-12">
-                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Ingrese datos del nuevo cliente</h2>
+                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Edite datos del producto</h2>
                 </div>
                 <div class="col-lg-7 tm-contact-left">
-                            <form method="POST" action="{{ route('clientes.update', $cliente) }}" class="mb-5 ml-auto mr-0 tm-contact-form">
+                            <form method="POST" action="{{ route('productos.update', $producto) }}" class="mb-5 ml-auto mr-0 tm-contact-form">
                             @csrf
                             @method('PUT')
 
                             <div class="form-group row mb-4">
-                                <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
-                                    <div class="col-sm-9">
-                                     <input class="form-control mr-0 ml-auto" name="nombre" id="name" type="text" value="{{ $cliente->nombre }}"  required>                            
-                                    </div>
-                            </div>
-
-                            <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Apellido</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="apellido" id="name" type="text"  value="{{ $cliente->apellido }}" required>                            
-                            </div>
+                        <label for="nombre" class="col-sm-3 col-form-label text-right tm-color-primary">Nombre</label>
+                        <div class="col-sm-9">
+                            <input class="form-control mr-0 ml-auto" name="nombreProducto" id="nombre" type="text" value="{{ $producto->nombreproducto }}"  required>
                         </div>
-                        <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Dni</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="dni" id="name" type="text" value="{{ $cliente->dni }}"  required maxlength="8">                            
-                            </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="marca" class="col-sm-3 col-form-label text-right tm-color-primary">Marca</label>
+                        <div class="col-sm-9">
+                            <input class="form-control mr-0 ml-auto" name="marcaProducto" id="marca" type="text" value="{{ $producto->marcaproducto }}"  required>
                         </div>
-
-                        <div class="form-group row text-right">
-                            <div class="col-12">
-                                <button class="tm-btn tm-btn-primary tm-btn-small">Guardar cambios</button>                        
-                            </div>                            
-                        </div>   
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="costo" class="col-sm-3 col-form-label text-right tm-color-primary">Costo</label>
+                        <div class="col-sm-4">
+                            <input class="form-control mr-0 ml-auto" name="costo" id="costo" type="text" value="{{ $producto->costo }}" required maxlength="8">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label for="cantdis" class="col-sm-3 col-form-label text-right tm-color-primary">Cant. Disponible</label>
+                        <div class="col-sm-4">
+                            <input class="form-control mr-0 ml-auto" name="cantidad_disponible" id="cantdis" type="text" value="{{ $producto->cantidad_disponible}}" required maxlength="8">
+                        </div>
+                    </div>
+                    <div class="form-group row text-right">
+                        <div class="col-12">
+                            <button class="tm-btn tm-btn-primary tm-btn-small">Agregar</button>
+                        </div>
+                    </div>
                         </form>
 
                 </div>

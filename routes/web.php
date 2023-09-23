@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController; 
 use App\Http\Controllers\ProductoController; 
+use App\Http\Controllers\VentaController; 
 
 
 /*
@@ -19,7 +20,7 @@ use App\Http\Controllers\ProductoController;
 Route::get('/', function () {
     return view('menu');
 });
-
+//clientes
 Route::prefix('clientes')->group(function () {
     //VISTA CLIENTES
     Route::get('/', function () {
@@ -50,7 +51,7 @@ Route::put('/ver_cliente/{cliente}', [ClienteController::class, 'update'])->name
 });
 
 
-
+//productos
 Route::prefix('productos')->group(function () {
     //VISTA PRODUCTOS
     Route::get('/', function () {
@@ -70,9 +71,31 @@ Route::prefix('productos')->group(function () {
 
      //ELIMINAR PRODUCTOS
     Route::delete('/ver_productos{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+
+     // VISTA EDITAR CLIENTES
+     Route::get('/ver_productos/{producto}', [ProductoController::class, 'edit'])->name('productos.editar');
+
+    // EDITAR Productos (actualización)
+    Route::put('/ver_productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
     
 });
 
+//ventas
+Route::prefix('ventas')->group(function(){
+   Route::get('/', function () {
+    return view('venta.vistaventas');
+})->name('vistaventas');
+
+//VISTA CARGAR VENTA
+Route::get('/cargar_venta', function () {
+    return view('venta.crearventa');
+})->name('cargarventa');
+
+Route::get('/crear_venta', [VentaController::class, 'mostrarClientesYProductos'])->name('ventas.index');
+Route::post('/crear_venta', [VentaController::class, 'store'])->name('ventas.store');
+
+
+});
  
 
 
