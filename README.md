@@ -62,7 +62,7 @@ Asegúrate de tener instalado lo siguiente en tu sistema antes de comenzar:
 
 ### **Dashboard**
 
-Tu proyecto Laravel incluye un menú de dashboard con tres secciones:
+Este proyecto incluye un menú de dashboard con tres secciones:
 
 1. **Clientes**
    - Operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar información de clientes.
